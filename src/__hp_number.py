@@ -34,33 +34,10 @@
 # coding: utf-8
 # ## imports
 # Python Standard Library
-import sys
-import operator
-from collections import Counter  # available in Python 2.7 and newer
-from collections import defaultdict  # available in Python 2.5 and newer
-from itertools import count as iter_count
-import os
-import argparse
-import pickle
-import copy
-import time
 
 # Third Party Imports
-#   Data Processing
-#     Set the seed of the numpy random number generator
-import numpy as np # Matrix and vector computation package
-from sklearn import model_selection as msel
-#   Machine Learning
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import torch.optim as optim
-from torch.optim import lr_scheduler
-#   Visualisation
-# Local Application/Library Specific Imports.
 
-# Set the seed of the numpy random number generator
-np.random.seed(seed=1)
+# Local Application/Library Specific Imports.
 
 #################################################
 # Number Manipulation
@@ -124,7 +101,7 @@ def least_sig_bits_hex(src, bits, out_t=int, arr=True):
     # Return the number
     if out_t is int or out_t == 'int':
         return int(src, 2)
-    return cb.to_hex(src, base=2, short=True)
+    return to_hex(src, base=2, short=True)
 
 def append_bits(src, append_src, out_t=int):
     """ Append bits to src integer/binary numbers."""
