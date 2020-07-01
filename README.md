@@ -1,4 +1,4 @@
-# hepful-python
+# helpful-python
 Helper functions for Python magic.  
 While using Python I found myself needing some short and in my opinion highly reusable functions. Hence I decided to package those and share them with you.
 
