@@ -34,6 +34,7 @@
 # coding: utf-8
 # ## imports
 # Python Standard Library
+import math
 
 # Third Party Imports
 
@@ -122,3 +123,19 @@ def append_bits(src, append_src, out_t=int):
         if out_t is int or out_t == 'int':
             return int(bin(elem)+'{}'.format(bits), 2)
         return elem+str(bits)
+
+def convert_byte_size(size_bytes):
+    """Convert {size_bytes} bytes to string with degree literal.
+       Support all base systems: {hex-B16-0xn,
+                                  interger-B10-n,
+                                  octal-B8-0on,
+                                  binary-B2-0bn}."""
+    if size_bytes == 0:
+        return "0B"
+    degree_name = ("B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB")
+    degree = int(math.floor(math.log(size_bytes, 1024)))
+    degree_order = math.pow(1024, degree)
+    bytes_in_degree = round(size_bytes / degree_order, 2)
+    if bytes_in_degree % 1 == 0:
+        bytes_in_degree = int(bytes_in_degree)
+    return "%s%s" % (bytes_in_degree, degree_name[degree])
